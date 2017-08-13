@@ -12,20 +12,26 @@ start/end markers.
 
 ## Negotiatable approach
 
-It then creates Emacs `overlays` which augment the text with
-pre-declared faces. This is mostly meant as initial start to
-understand how things work, because it directly uses the information
-provided by Perl6::Parser.
+1. Create Emacs `overlays` which augment the text with pre-declared
+   faces. This is mostly meant as initial start to understand how
+   things work, because it directly uses the information provided by
+   Perl6::Parser.
 
-This keeps the highlighting until the next time quite static and only
-up to date as long as Emacs can keep track of start/end points, which
-it can inside words and between words but not well on word boundaries.
+   This keeps the highlighting until the next time quite static and
+   only up to date as long as Emacs can keep track of start/end
+   points, which it can inside words and between words but not well on
+   word boundaries.
 
-The behaviour might remind you of the very early Emacs "hilite" modes
-before there was font-lock. I think it is similar.
+   The behaviour might remind you of the very early Emacs "hilite"
+   modes before there was font-lock. I think it is similar.
 
-We might trigger the highlighting explicitely with a key or
-implicitely when idle.
+1. We might trigger the highlighting explicitely with a key or
+   implicitely when idle.
+
+1. Indentation ideas:
+   - "Steal" indentation logic from some other mode (good old
+     perl-mode (not cperl-mode), or perl6-mode.
+   - Use the balanced entry/exit information from Perl6::Parser.
 
 ## Issues and mitigation ideas
 
